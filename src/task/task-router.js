@@ -7,14 +7,14 @@ const TaskRouter = express.Router();
 
 TaskRouter.route("/").post(jsonBodyParser, (req, res, next) => {
   if (!req.body) {
-    return res.status(400).json({ Error: `Missing request body` });
+    return res.status(400).json({ Error: `Missing req body` });
   }
 
   for (let prop of ["title", "index", "category_uuid"]) {
     if (req.body[prop] === undefined) {
       return res
         .status(400)
-        .json({ Error: `Missing '${prop}' property on request body` });
+        .json({ Error: `Missing '${prop}' property on req body` });
     }
   }
 
@@ -35,7 +35,7 @@ TaskRouter.route("/").post(jsonBodyParser, (req, res, next) => {
 TaskRouter.route("/:task_uuid")
   .patch(jsonBodyParser, (req, res, next) => {
     if (!req.body) {
-      return res.status(400).json({ Error: `Missing request body` });
+      return res.status(400).json({ Error: `Missing req body` });
     }
 
     if (req.body.toReIndex) {

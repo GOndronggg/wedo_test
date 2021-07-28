@@ -7,12 +7,12 @@ const CategoryRouter = express.Router();
 
 CategoryRouter.route('/').post(jsonBodyParser, (req, res, next) => {
   if (!req.body) {
-    return res.status(400).json({ Error: `Missing request body` });
+    return res.status(400).json({ Error: `Missing req body` });
   }
   if (!req.body.title) {
     return res
       .status(400)
-      .json({ Error: `Missing 'title' property on request body` });
+      .json({ Error: `Missing 'title' property on req body` });
   }
 
   const { uuid, title, index, project_id } = req.body;
@@ -37,7 +37,7 @@ CategoryRouter.route('/').post(jsonBodyParser, (req, res, next) => {
 CategoryRouter.route('/:category_uuid')
   .patch(jsonBodyParser, (req, res, next) => {
     if (!req.body) {
-      return res.status(400).json({ Error: `Missing request body` });
+      return res.status(400).json({ Error: `Missing req body` });
     }
 
     if (req.body.title) {

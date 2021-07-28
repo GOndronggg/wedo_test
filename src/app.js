@@ -74,6 +74,3 @@ req, res
     res.status(500).json(response);
 });
 module.exports = { app: app, http: httpServer };
-/* ------------------------------ Heroku Limits ----------------------------- */
-// Each account has a pool of request tokens that can hold at most 4500 tokens. Each API call removes one token from the pool. Tokens are added to the account pool at a rate of roughly 75 per minute (or 4500 per hour), up to a maximum of 4500.
-// Read More: https://devcenter.heroku.com/articles/platform-api-reference#rate-limits

@@ -8,5 +8,5 @@ var db = knex({
 });
 app.set('db', db);
 http.listen(PORT, function () {
-    console.log("Server listening at http://localhost:" + PORT);
+    console.log("Server running at http://localhost:" + PORT);
 });
